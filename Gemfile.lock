@@ -338,7 +338,7 @@ DEPENDENCIES
   tzinfo-data
   web-console
   webdrivers
-  webpacker
+  webpacker (~> 5.0)
   will_paginate
 
 BUNDLED WITH
