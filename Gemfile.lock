@@ -113,6 +113,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     coderay (1.1.3)
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.2.0)
     crass (1.0.6)
     date (3.3.3)
@@ -315,6 +316,7 @@ DEPENDENCIES
   bootstrap-will_paginate
   byebug
   capybara
+  coffee-script-source
   faker
   guard
   guard-minitest
