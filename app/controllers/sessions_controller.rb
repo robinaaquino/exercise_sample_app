@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy, :new]
-
   def new
   end
 
@@ -22,12 +20,4 @@ class SessionsController < ApplicationController
     log_out
     redirect_to root_url
   end
-
-  private
-    def logged_in_user
-      unless logged_in?
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
 end
