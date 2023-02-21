@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+
   def new
     @user = User.new
     # debugger
@@ -12,6 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params) # Not the final implementation!
     if @user.save
+      log_in @user
       flash[:success] = "Welcome"
       redirect_to  @user
       # Handle a successful save.
@@ -23,6 +26,12 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
+    end
 
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
 end
